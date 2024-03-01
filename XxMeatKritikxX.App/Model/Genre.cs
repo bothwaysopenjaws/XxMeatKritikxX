@@ -4,31 +4,39 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace XxMeatKritikxX.App.Model
+namespace XxMeatKritikxX.App.Model;
+
+/// <summary>
+/// Genre
+/// </summary>
+public class Genre
 {
+    #region Properties
+
     /// <summary>
-    /// Genre
+    /// Nom
     /// </summary>
-    internal class Genre
+    public string Name { get; set; }
+
+    /// <summary>
+    /// Jeux vidéos du genre
+    /// </summary>
+    public List<VideoGame> VideoGames { get; set; }
+
+    #endregion
+
+    #region Constructors
+
+    /// <summary>
+    /// Instancie un genre
+    /// </summary>
+    /// <param name="name">Nom</param>
+    public Genre(string name)
     {
-        /// <summary>
-        /// Nom
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Jeux vidéos du genre
-        /// </summary>
-        public List<VideoGame> VideoGames { get; set; }
-
-        /// <summary>
-        /// Instancie un genre
-        /// </summary>
-        /// <param name="name">Nom</param>
-        public Genre(string name)
-        {
-            Name = name;
-            VideoGames = new();
-        }
+        Name = name;
+        VideoGames = new();
     }
+
+    #endregion
+
 }
