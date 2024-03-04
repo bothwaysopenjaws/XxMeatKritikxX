@@ -41,8 +41,7 @@ public partial class UserForm : Form
     {
         Context = context;
         InitializeComponent();
-        listBoxUsers.DataSource = context.Users;
-        listBoxUsers.DisplayMember = nameof(User.Pseudo);
+        RefreshList(listBoxUsers, Context.UserRepository.Read(), nameof(User.Pseudo));
 
         listBoxVideoGames.DataSource = context.VideoGames;
         listBoxVideoGames.DisplayMember = nameof(VideoGame.Title);
@@ -147,5 +146,53 @@ public partial class UserForm : Form
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void buttonReutrn_Click(object sender, EventArgs e) => this.Close();
+    private void buttonReturn_Click(object sender, EventArgs e) => this.Close();
+
+    private void buttonAddUser_Click(object sender, EventArgs e)
+    {
+        Context.UserRepository.Create(new("Encarton"));
+        RefreshList(listBoxUsers, Context.UserRepository.Read(), nameof(User.Pseudo));
+    }
+
+    private void buttonUpdateUser_Click(object sender, EventArgs e)
+    {
+
+    }
+
+    private void buttonDeleteUser_Click(object sender, EventArgs e)
+    {
+        if (SelectedUser != null)
+        {
+            Context.UserRepository.Delete(SelectedUser);
+            RefreshList(listBoxUsers, Context.UserRepository.Read(), nameof(User.Pseudo));
+        }
+        else
+        {
+            MessageBox.Show("Suppression impossible, élément non sélectionné");
+        }
+    }
+
+    /// <summary>
+    /// Rafraichit la liste
+    /// </summary>
+    /// <param name="listBox"></param>
+    /// <param name="source"></param>
+    /// <param name="displayMember"></param>
+    private void RefreshList(ListBox listBox, object? source, string displayMember)
+    {
+        listBox.DataSource = null;
+        listBox.DataSource = source;
+        listBoxUsers.DisplayMember = displayMember;
+
+    }
+
+    private void buttonUpdateUserValidate_Click(object sender, EventArgs e)
+    {
+        if (SelectedUser != null)
+        {
+            SelectedUser.Pseudo = textBoxPseudo.Text;
+            Context.UserRepository.Update(SelectedUser);
+        }
+
+    }
 }

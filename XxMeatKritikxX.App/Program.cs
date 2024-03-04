@@ -14,9 +14,6 @@ namespace XxMeatKritikxX.App
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            UserDAO userDAO = new UserDAO();
-            userDAO.Create(new Model.User("Test)"));
-            userDAO.Delete(new Model.User("Test)") { Id = 1});
             Application.Run(new MainForm());
         }
     }
