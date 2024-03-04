@@ -9,9 +9,11 @@ namespace XxMeatKritikxX.App.Model;
 /// <summary>
 /// Genre
 /// </summary>
-public class Genre
+public class Genre : IdentityObject
 {
     #region Properties
+
+    public int Id { get; set; }
 
     /// <summary>
     /// Nom
@@ -26,7 +28,7 @@ public class Genre
     #endregion
 
     #region Constructors
-
+            
     /// <summary>
     /// Instancie un genre
     /// </summary>

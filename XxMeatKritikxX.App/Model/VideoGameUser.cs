@@ -9,7 +9,7 @@ namespace XxMeatKritikxX.App.Model;
 /// <summary>
 /// Notation d'un utilisateur sur un jeu
 /// </summary>
-public class VideoGameUser
+public class VideoGameUser : IdentityObject
 {
     #region Properties
 
