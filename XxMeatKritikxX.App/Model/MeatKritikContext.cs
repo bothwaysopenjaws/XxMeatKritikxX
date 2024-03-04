@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using XxMeatKritikxX.App.Repository;
 
 namespace XxMeatKritikxX.App.Model;
 
@@ -33,6 +34,11 @@ public class MeatKritikContext
     /// </summary>
     public List<User> Users { get; set; }
 
+    /// <summary>
+    /// Accès à la base de données
+    /// </summary>
+    public UserRepository UserRepository { get; init; }
+
     #endregion
 
 
@@ -45,6 +51,11 @@ public class MeatKritikContext
         Studios = new ();
         VideoGames = new();
         Users = new();
+        UserRepository = new();
+
+        //Ajout de données de tests si aucune n'est présente en base
+        if (UserRepository.Read().Count == 0)
+            AddUsersInDB();
     }
 
 
@@ -145,6 +156,20 @@ public class MeatKritikContext
             60,
             "https://upload.wikimedia.org/wikipedia/fr/3/3d/Dofus_Logo.png"));
     }
+
+    #endregion
+
+    #region PopulateDB
+
+    private void AddUsersInDB()
+    {
+
+        foreach (User user in Users)
+        {
+            UserRepository.Create(user);
+        }
+    }
+
 
     #endregion
 

@@ -1,3 +1,4 @@
+using XxMeatKritikxX.App.Model.DAO;
 using XxMeatKritikxX.App.Windows;
 
 namespace XxMeatKritikxX.App

@@ -40,8 +40,16 @@
             labelNote = new Label();
             buttonAddNotation = new Button();
             buttonReutrn = new Button();
+            buttonAddUser = new Button();
+            buttonDeleteUser = new Button();
+            buttonUpdateUser = new Button();
+            groupBoxManageUser = new GroupBox();
+            textBoxPseudo = new TextBox();
+            labelUpdateText = new Label();
+            buttonUpdateUserValidate = new Button();
             groupBoxNotation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNote).BeginInit();
+            groupBoxManageUser.SuspendLayout();
             SuspendLayout();
             // 
             // listBoxUsers
@@ -50,7 +58,7 @@
             listBoxUsers.ItemHeight = 15;
             listBoxUsers.Location = new Point(8, 15);
             listBoxUsers.Name = "listBoxUsers";
-            listBoxUsers.Size = new Size(165, 409);
+            listBoxUsers.Size = new Size(165, 289);
             listBoxUsers.TabIndex = 0;
             listBoxUsers.SelectedIndexChanged += listBoxUsers_SelectedIndexChanged;
             // 
@@ -151,13 +159,85 @@
             buttonReutrn.TabIndex = 4;
             buttonReutrn.Text = "Retour";
             buttonReutrn.UseVisualStyleBackColor = true;
-            buttonReutrn.Click += buttonReutrn_Click;
+            buttonReutrn.Click += buttonReturn_Click;
+            // 
+            // buttonAddUser
+            // 
+            buttonAddUser.Location = new Point(8, 316);
+            buttonAddUser.Name = "buttonAddUser";
+            buttonAddUser.Size = new Size(165, 30);
+            buttonAddUser.TabIndex = 5;
+            buttonAddUser.Text = "Ajouter";
+            buttonAddUser.UseVisualStyleBackColor = true;
+            buttonAddUser.Click += buttonAddUser_Click;
+            // 
+            // buttonDeleteUser
+            // 
+            buttonDeleteUser.Location = new Point(7, 393);
+            buttonDeleteUser.Name = "buttonDeleteUser";
+            buttonDeleteUser.Size = new Size(166, 32);
+            buttonDeleteUser.TabIndex = 6;
+            buttonDeleteUser.Text = "Supprimer";
+            buttonDeleteUser.UseVisualStyleBackColor = true;
+            buttonDeleteUser.Click += buttonDeleteUser_Click;
+            // 
+            // buttonUpdateUser
+            // 
+            buttonUpdateUser.Location = new Point(7, 352);
+            buttonUpdateUser.Name = "buttonUpdateUser";
+            buttonUpdateUser.Size = new Size(166, 35);
+            buttonUpdateUser.TabIndex = 7;
+            buttonUpdateUser.Text = "Modifier";
+            buttonUpdateUser.UseVisualStyleBackColor = true;
+            buttonUpdateUser.Click += buttonUpdateUser_Click;
+            // 
+            // groupBoxManageUser
+            // 
+            groupBoxManageUser.Controls.Add(textBoxPseudo);
+            groupBoxManageUser.Controls.Add(labelUpdateText);
+            groupBoxManageUser.Controls.Add(buttonUpdateUserValidate);
+            groupBoxManageUser.Location = new Point(400, 247);
+            groupBoxManageUser.Name = "groupBoxManageUser";
+            groupBoxManageUser.Size = new Size(396, 122);
+            groupBoxManageUser.TabIndex = 8;
+            groupBoxManageUser.TabStop = false;
+            groupBoxManageUser.Text = "Modifier Utilisateur";
+            // 
+            // textBoxPseudo
+            // 
+            textBoxPseudo.Location = new Point(122, 24);
+            textBoxPseudo.Name = "textBoxPseudo";
+            textBoxPseudo.Size = new Size(115, 23);
+            textBoxPseudo.TabIndex = 2;
+            // 
+            // labelUpdateText
+            // 
+            labelUpdateText.AutoSize = true;
+            labelUpdateText.Location = new Point(15, 27);
+            labelUpdateText.Name = "labelUpdateText";
+            labelUpdateText.Size = new Size(101, 15);
+            labelUpdateText.TabIndex = 1;
+            labelUpdateText.Text = "nouveau pseudo :";
+            // 
+            // buttonUpdateUserValidate
+            // 
+            buttonUpdateUserValidate.Location = new Point(257, 19);
+            buttonUpdateUserValidate.Name = "buttonUpdateUserValidate";
+            buttonUpdateUserValidate.Size = new Size(121, 31);
+            buttonUpdateUserValidate.TabIndex = 0;
+            buttonUpdateUserValidate.Text = "Valider";
+            buttonUpdateUserValidate.UseVisualStyleBackColor = true;
+            buttonUpdateUserValidate.Click += buttonUpdateUserValidate_Click;
             // 
             // UserForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBoxManageUser);
+            Controls.Add(buttonUpdateUser);
+            Controls.Add(buttonDeleteUser);
+            Controls.Add(buttonAddUser);
             Controls.Add(buttonReutrn);
             Controls.Add(buttonAddNotation);
             Controls.Add(groupBoxNotation);
@@ -169,6 +249,8 @@
             groupBoxNotation.ResumeLayout(false);
             groupBoxNotation.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownNote).EndInit();
+            groupBoxManageUser.ResumeLayout(false);
+            groupBoxManageUser.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -185,5 +267,12 @@
         private Button buttonRemove;
         private Button buttonValidate;
         private Button buttonReutrn;
+        private Button buttonAddUser;
+        private Button buttonDeleteUser;
+        private Button buttonUpdateUser;
+        private GroupBox groupBoxManageUser;
+        private TextBox textBoxPseudo;
+        private Label labelUpdateText;
+        private Button buttonUpdateUserValidate;
     }
 }

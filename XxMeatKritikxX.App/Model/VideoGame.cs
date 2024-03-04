@@ -9,7 +9,7 @@ namespace XxMeatKritikxX.App.Model;
 /// <summary>
 /// Jeux vidéo
 /// </summary>
-public class VideoGame
+public class VideoGame : IdentityObject
 {
     #region Properties
 
@@ -65,7 +65,7 @@ public class VideoGame
             return (count != 0) ? total / count : null;
         }
     }
-    
+
 
 
     #endregion

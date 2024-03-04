@@ -9,7 +9,7 @@ namespace XxMeatKritikxX.App.Model;
 /// <summary>
 /// Studio
 /// </summary>
-public class Studio
+public class Studio : IdentityObject
 {
     #region Properties
 

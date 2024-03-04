@@ -9,7 +9,7 @@ namespace XxMeatKritikxX.App.Model
     /// <summary>
     /// Utilisateur
     /// </summary>
-    public class User
+    public class User : IdentityObject
     {
         public string Pseudo { get; set; }
 
