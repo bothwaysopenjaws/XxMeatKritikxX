@@ -10,7 +10,7 @@ namespace XxMeatKritikxX.App.Model.DAO
     /// Interface correspondant à la couche d'accès aux données.
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    internal interface IEntityDAO<T>
+    public interface IEntityDAO<T>
     {
         /// <summary>
         /// Créé une entité de type <see cref="T"/>

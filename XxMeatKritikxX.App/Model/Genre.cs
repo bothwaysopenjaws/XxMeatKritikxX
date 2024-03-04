@@ -13,8 +13,6 @@ public class Genre : IdentityObject
 {
     #region Properties
 
-    public int Id { get; set; }
-
     /// <summary>
     /// Nom
     /// </summary>

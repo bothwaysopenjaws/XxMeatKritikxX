@@ -8,9 +8,9 @@ using XxMeatKritikxX.App.Model.DAO;
 
 namespace XxMeatKritikxX.App.Repository;
 
-public class UserRepository : EntityRepository<User>
+public class VideoGameRepository : EntityRepository<VideoGame>
 {
-    public UserRepository()
-        : base(new UserDAO())
+    public VideoGameRepository()
+        : base(new VideoGameDAO())
     { }
 }

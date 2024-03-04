@@ -42,9 +42,7 @@ public partial class UserForm : Form
         Context = context;
         InitializeComponent();
         RefreshList(listBoxUsers, Context.UserRepository.Read(), nameof(User.Pseudo));
-
-        listBoxVideoGames.DataSource = context.VideoGames;
-        listBoxVideoGames.DisplayMember = nameof(VideoGame.Title);
+        RefreshList(listBoxVideoGames, Context.VideoGameRepository.Read(), nameof(VideoGame.Title));
     }
 
     /// <summary>
@@ -182,7 +180,7 @@ public partial class UserForm : Form
     {
         listBox.DataSource = null;
         listBox.DataSource = source;
-        listBoxUsers.DisplayMember = displayMember;
+        listBox.DisplayMember = displayMember;
 
     }
 

@@ -11,6 +11,18 @@ namespace XxMeatKritikxX.App.Model
     /// </summary>
     public class User : IdentityObject
     {
+
+        /// <summary>
+        /// Nom de la classe
+        /// </summary>
+        public string className => nameof(User);
+
+        /// <summary>
+        /// Nom de la clase pluralisée
+        /// </summary>
+        public string pluralizedClassName => nameof(User) + "s";
+
+
         public string Pseudo { get; set; }
 
         /// <summary>
