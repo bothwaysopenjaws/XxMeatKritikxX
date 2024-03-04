@@ -8,9 +8,12 @@ using XxMeatKritikxX.App.Model.DAO;
 
 namespace XxMeatKritikxX.App.Repository;
 
-public class UserRepository : EntityRepository<User>
+public class GenreRepository : EntityRepository<Genre>
 {
-    public UserRepository()
-        : base(new UserDAO())
+    public GenreRepository()
+        : base(new GenreDAO())
     { }
+
+    public Genre GetByName(string name) => ((GenreDAO)this._EntityDAO).GetByName(name);
+
 }

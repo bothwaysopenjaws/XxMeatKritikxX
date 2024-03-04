@@ -8,9 +8,11 @@ using XxMeatKritikxX.App.Model.DAO;
 
 namespace XxMeatKritikxX.App.Repository;
 
-public class UserRepository : EntityRepository<User>
+public class StudioRepository : EntityRepository<Studio>
 {
-    public UserRepository()
-        : base(new UserDAO())
+    public StudioRepository()
+        : base(new StudioDAO())
     { }
+
+    public Studio GetByName(string name) => ((StudioDAO)this._EntityDAO).GetByName(name);
 }

@@ -38,6 +38,9 @@ public class MeatKritikContext
     /// Accès à la base de données
     /// </summary>
     public UserRepository UserRepository { get; init; }
+    public GenreRepository GenreRepository { get; init; }
+    public StudioRepository StudioRepository { get; init; }
+    public VideoGameRepository VideoGameRepository { get; init; }
 
     #endregion
 
@@ -52,10 +55,19 @@ public class MeatKritikContext
         VideoGames = new();
         Users = new();
         UserRepository = new();
-
+        GenreRepository = new();
+        StudioRepository = new();
+        VideoGameRepository = new();
+        //MockupData();
         //Ajout de données de tests si aucune n'est présente en base
         if (UserRepository.Read().Count == 0)
             AddUsersInDB();
+        if (GenreRepository.Read().Count == 0)
+            AddGenresInDB();
+        if (StudioRepository.Read().Count == 0)
+            AddStudiosInDB();
+        if (VideoGameRepository.Read().Count == 0)
+            AddVideoGamesInDB();
     }
 
 
@@ -163,14 +175,32 @@ public class MeatKritikContext
 
     private void AddUsersInDB()
     {
-
         foreach (User user in Users)
-        {
             UserRepository.Create(user);
-        }
     }
 
+    private void AddStudiosInDB()
+    {
+        foreach (Studio studio in Studios)
+            StudioRepository.Create(studio);
+    }
 
+    private void AddGenresInDB()
+    {
+        foreach (Genre genre in Genres)
+            GenreRepository.Create(genre);
+    }
+
+    private void AddVideoGamesInDB()
+    {
+        foreach (VideoGame videoGame in VideoGames)
+        {
+            videoGame.Genre = GenreRepository.GetByName(videoGame.Genre.Name);
+            videoGame.Studio = StudioRepository.GetByName(videoGame.Studio.Name);
+            VideoGameRepository.Create(videoGame);
+
+        }
+    }
     #endregion
 
 }

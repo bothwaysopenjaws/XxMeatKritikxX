@@ -23,12 +23,12 @@ public partial class MainForm : Form
     public MainForm()
     {
         Context = new();
-        Context.MockupData();
+        //Context.MockupData();
         InitializeComponent();
 
-        RefreshListBox(listBoxVideoGames, Context.VideoGames, nameof(VideoGame.Title));
-        RefreshComboBox(comboBoxGenre, Context.Genres, nameof(Genre.Name));
-        RefreshComboBox(comboBoxStudio, Context.Studios, nameof(Studio.Name));
+        RefreshListBox(listBoxVideoGames, Context.VideoGameRepository.Read(), nameof(VideoGame.Title));
+        RefreshComboBox(comboBoxGenre, Context.GenreRepository.Read(), nameof(Genre.Name));
+        RefreshComboBox(comboBoxStudio, Context.StudioRepository.Read(), nameof(Studio.Name));
     }
 
     #region Methods
@@ -70,7 +70,7 @@ public partial class MainForm : Form
     {
         this.Visible = false;
         new UserForm(Context).ShowDialog();
-        RefreshListBox(listBoxVideoGames, Context.VideoGames, nameof(VideoGame.Title));
+        RefreshListBox(listBoxVideoGames, Context.VideoGameRepository.Read(), nameof(VideoGame.Title));
         this.Visible = true;
     }
 
